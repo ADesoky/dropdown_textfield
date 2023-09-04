@@ -297,7 +297,7 @@ class _DropDownTextFieldState extends State<DropDownTextField>
     );
     _heightFactor = _controller.drive(_easeInTween);
     _searchWidgetHeight = 60;
-    _hintText = "Select Item";
+    _hintText = "Educational Level";
     _searchFocusNode.addListener(() {
       if (!_searchFocusNode.hasFocus &&
           !_textFieldFocusNode.hasFocus &&
