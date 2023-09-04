@@ -54,8 +54,7 @@ class DropDownTextField extends StatefulWidget {
       this.controller,
       this.initialValue,
       required this.dropDownList,
-
-        required this.hint,
+        this.hint,
       this.padding,
       this.textStyle,
       this.onChanged,
@@ -179,7 +178,7 @@ class DropDownTextField extends StatefulWidget {
 
   final EdgeInsets? padding;
 
-  final String hint;
+  final String? hint;
 
   ///override default textfield decoration
   final InputDecoration? textFieldDecoration;
@@ -246,6 +245,7 @@ class DropDownTextField extends StatefulWidget {
   final TextInputType? keyboardType;
   final AutovalidateMode? autovalidateMode;
 
+
   ///customize checkbox property
   final CheckBoxProperty? checkBoxProperty;
 
@@ -286,7 +286,7 @@ class _DropDownTextFieldState extends State<DropDownTextField>
   late double _keyboardHeight;
   late TextStyle _listTileTextStyle;
   late ListPadding _listPadding;
-  late String _hint;
+
   @override
   void initState() {
     _cnt = TextEditingController();
@@ -303,7 +303,7 @@ class _DropDownTextFieldState extends State<DropDownTextField>
     );
     _heightFactor = _controller.drive(_easeInTween);
     _searchWidgetHeight = 60;
-    _hintText = _hint;
+    _hintText = widget.hint??"Select Item";
     _searchFocusNode.addListener(() {
       if (!_searchFocusNode.hasFocus &&
           !_textFieldFocusNode.hasFocus &&
